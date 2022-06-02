@@ -13,7 +13,7 @@ function App() {
       const intc=setInterval(()=>{
         p=p+10;
         setProgress(p);
-        if(p==100)
+        if(p===100)
           clearInterval(intc);
       },200)
      import('./imgs/1_counting.json').then((data)=>{
