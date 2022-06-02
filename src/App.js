@@ -1,14 +1,18 @@
 import './App.css';
-import lottieJson from './imgs/1_counting.json';
 import Lottie from 'react-lottie-player';
+import { useEffect, useState } from 'react';
 function App() {
-
+  const [animationData, setAnimationData] = useState();
+  useEffect(() => {
+     import('./imgs/1_counting.json').then(setAnimationData);
+  }, []);
+  if (!animationData) return <div style={{"background-image": "linear-gradient(to right, #9bd245 , #84ba39)",height:"100vh"}}>&nbsp;</div>;
   return (
     <div className="App">
       
       <Lottie
       loop
-      animationData={lottieJson}
+      animationData={animationData}
       play
       style={{ width: "2000px", height:  "100%" }}
     />
